@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Lesosns")]
+[assembly: AssemblyTitle("Lessons")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DNA Project")]
-[assembly: AssemblyProduct("Lesosns")]
+[assembly: AssemblyProduct("Lessons")]
 [assembly: AssemblyCopyright("Copyright © DNA Project 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("f1115dcd-5e88-474c-97e1-f63701846546")]
+[assembly: Guid("b9b35ba1-ecbb-4edd-a73a-a6b45fc1bd13")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

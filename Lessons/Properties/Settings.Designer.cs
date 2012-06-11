@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lesosns.Properties
+namespace Lessons.Properties
 {
 
 

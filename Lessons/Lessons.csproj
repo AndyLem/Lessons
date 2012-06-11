@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E430AE05-8775-4D77-84CF-A978DCB4A0D3}</ProjectGuid>
+    <ProjectGuid>{CC686F44-020D-49B3-8085-3D76501241D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lesosns</RootNamespace>
-    <AssemblyName>Lesosns</AssemblyName>
+    <RootNamespace>Lessons</RootNamespace>
+    <AssemblyName>Lessons</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>

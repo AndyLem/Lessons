@@ -1,4 +1,4 @@
-﻿namespace Lesosns
+﻿namespace Lessons
 {
     partial class Form1
     {
