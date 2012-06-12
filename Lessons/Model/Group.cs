@@ -25,16 +25,16 @@ namespace Lessons.Model
         {
             get
             {
-                /// TODO: temporaty solution. need to replace with the search 
-                /// by students giuds for this group
-                //return Storage.Data.EnumStudents();
-
+                // all available students 
                 var allStuds = Storage.Data.Students.GetEnumerator();
+
+                // _studentsIds stores IDs of this group's students. 
+                // So we need to join this two collections
                 var thisGroupStuds = from stud in allStuds
                                      join ourStudId in _studentsIds
                                      on stud.ID equals ourStudId
                                      select stud;
-                return thisGroupStuds;
+                return thisGroupStuds; // there is a test for this
             }
         }
 
