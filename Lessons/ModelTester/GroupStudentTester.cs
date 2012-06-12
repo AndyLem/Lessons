@@ -14,15 +14,14 @@ namespace ModelTester
     public class GroupStudentTester
     {
         [TestMethod]
-        public void TestNewIDs()
+        public void TestIDs()
         {
-            Group newGroup = new Group();
-            Assert.IsTrue(string.IsNullOrEmpty(newGroup.ID), "There should be no ID after default Group construction");
-            Student newStud = new Student();
-            Assert.IsTrue(string.IsNullOrEmpty(newStud.ID), "There should be no ID after default Student construction");
-            newStud = new Student("Mr. Studoid");
+            University newUni = new University("Best Uni ever");
+            Assert.IsFalse(string.IsNullOrEmpty(newUni.ID), "Univer's constructor with parameters must generate an ID");
+
+            Student newStud = new Student("Mr. Studoid");
             Assert.IsFalse(string.IsNullOrEmpty(newStud.ID), "Student's constructor with parameters must generate an ID");
-            newGroup = new Group("Test Group");
+            Group newGroup = new Group("Test Group", newUni);
             Assert.IsFalse(string.IsNullOrEmpty(newGroup.ID), "Group's constructor with parameters must generate an ID");
         }
 
@@ -43,16 +42,14 @@ namespace ModelTester
         [TestMethod]
         public void StudentsOfGroup()
         {
-            Group tempGroup = new Group("TestGroup");
+            Group tempGroup = new Group("TestGroup", new University("TestUni"));
             Student stud1 = new Student("Mr. First");
             Student stud2 = new Student("Mr. Second");
             Student stud3 = new Student("Mr. Third");
-            Storage.Data.Students.AddItem(stud1);
-            Storage.Data.Students.AddItem(stud2);
-            Storage.Data.Students.AddItem(stud3);
-
             tempGroup.AddStudent(stud1);
+            Storage.Data.Students.AddItem(stud2);
             tempGroup.AddStudent(stud3);
+
             var resEnum = tempGroup.Students;
             var arr = resEnum.ToArray();
             Assert.AreEqual(2, arr.Length, "Two students expected to be in the group");
@@ -84,7 +81,7 @@ namespace ModelTester
         [TestMethod]
         public void SerializeGroup()
         {
-            Group srcGroup = new Group("Test Group");
+            Group srcGroup = new Group("Test Group", new University());
             Student stud = new Student("Mr. Stud");
             srcGroup.AddStudent(stud);
             

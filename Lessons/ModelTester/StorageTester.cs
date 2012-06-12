@@ -12,6 +12,7 @@ namespace ModelTester
     public class StorageTester
     {
         protected static Group testGroup;
+        protected static University testUniver;
 
         #region Дополнительные атрибуты теста
         // 
@@ -21,7 +22,8 @@ namespace ModelTester
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
-            testGroup = new Group("TestGroup");
+            testUniver = new University("Test Uni");
+            testGroup = new Group("TestGroup", testUniver);
             testGroup.AddStudent(new Student("Mr. Brilliant"));
             testGroup.AddStudent(new Student("Mr. Diamond"));
             testGroup.AddStudent(new Student("Mr. Carbone"));

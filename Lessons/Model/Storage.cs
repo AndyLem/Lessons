@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace Lessons.Model
 {
@@ -38,10 +39,30 @@ namespace Lessons.Model
             set { _groups = value; }
         }
 
-        protected Storage()
+        private TypedList<University> _univers;
+
+        public TypedList<University> Univers
+        {
+            get { return _univers; }
+            set { _univers = value; }
+        }
+
+        private TypedList<Course> _courses;
+
+        public TypedList<Course> Courses
+        {
+            get { return _courses; }
+            set { _courses = value; }
+        }
+
+
+
+        private Storage()
         {
             _students = new TypedList<Student>();
             _groups = new TypedList<Group>();
+            _univers = new TypedList<University>();
+            _courses = new TypedList<Course>();
         }
 
         internal void Save(string fileName)

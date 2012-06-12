@@ -6,41 +6,41 @@ using System.Runtime.Serialization;
 
 namespace Lessons.Model
 {
-    public class Group : IID
+    public class Group : IDBase, IID
     {
-        protected string _id = string.Empty;
-        private List<string> _studentsIds;
+        private string _univerId;
 
-        public List<string> StudentsIds
+        public string UniverId
         {
-            get { return _studentsIds; }
-            set { _studentsIds = value; }
+            get { return _univerId; }
+            set { _univerId = value; }
+        }
+
+        public University Univer
+        {
+            get
+            {
+                return Storage.Data.Univers[_univerId];
+            }
         }
 
         public string Name;
             
         /// <summary>
-        /// As usual, this ctor should be used only for serialization purposes. Do NOT generates an ID
+        /// As usual, this ctor should be used only for serialization purposes. Does NOT generates an ID
         /// </summary>
-        public Group()
+        public Group() : base()
         {
-            _studentsIds = new List<string>();
         }
 
         /// <summary>
         /// Standard ctor for developers. It will generate a new ID for this group
         /// </summary>
         /// <param name="name">The name of the group</param>
-        public Group(string name) : this()
+        public Group(string name, University univer) : this()
         {
-            _id = Guid.NewGuid().ToString();
             Name = name;
-        }
-
-        public string ID
-        {
-            get { return _id; }
-            set { _id = value; }
+            _univerId = univer.ID;
         }
 
         public IEnumerable<Student> Students 
@@ -49,14 +49,9 @@ namespace Lessons.Model
             {
                 // all available students 
                 var allStuds = Storage.Data.Students.GetEnumerator();
-
-                // _studentsIds stores IDs of this group's students. 
-                // So we need to join this two collections
-                var thisGroupStuds = from stud in allStuds
-                                     join ourStudId in _studentsIds
-                                     on stud.ID equals ourStudId
-                                     select stud;
-                return thisGroupStuds; // there is a test for this
+                return from stud in allStuds
+                       where stud.GroupId == ID
+                       select stud;
             }
         }
 
@@ -64,12 +59,12 @@ namespace Lessons.Model
         {
             if (Storage.Data.Students.GetItem(s.ID) == null)
                 Storage.Data.Students.AddItem(s);
-            _studentsIds.Add(s.ID);
+            s.GroupId = ID;
         }
 
         public void RemoveStudent(Student s)
         {
-            _studentsIds.Remove(s.ID);
+            s.GroupId = string.Empty;
         }
     }
 }
