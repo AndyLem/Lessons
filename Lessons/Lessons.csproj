@@ -54,6 +54,8 @@
     </Compile>
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\IID.cs" />
+    <Compile Include="Model\Storage.cs" />
+    <Compile Include="Model\TypedList.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

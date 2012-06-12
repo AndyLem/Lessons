@@ -7,9 +7,25 @@ namespace Lessons.Model
 {
     public class Group : IID
     {
+        protected string _id;
+                
+        public Group()
+        {
+            _id = Guid.NewGuid().ToString();
+        }
+
         public string ID
         {
-            get { throw new NotImplementedException(); }
+            get { return _id; }
+        }
+
+        public IEnumerable<Student> Students 
+        {
+            get
+            {
+                return null;
+            }
+
         }
     }
 }

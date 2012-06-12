@@ -7,9 +7,16 @@ namespace Lessons.Model
 {
     public class Student : IID
     {
+        protected string _id;
+
+        public Student()
+        {
+            _id = Guid.NewGuid().ToString();
+        }
+
         public string ID
         {
-            get { throw new NotImplementedException(); }
+            get { return _id; }
         }
     }
 }
