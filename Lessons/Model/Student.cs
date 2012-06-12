@@ -9,7 +9,7 @@ namespace Lessons.Model
     public class Student : IID
     {
         [XmlIgnore]
-        protected string _id;
+        protected string _id = string.Empty;
 
         [XmlElement(ElementName = "StudentName", IsNullable=false)]
         public string Name;
@@ -33,6 +33,7 @@ namespace Lessons.Model
         public string ID
         {
             get { return _id; }
+            set { _id = value; }
         }
     }
 }
