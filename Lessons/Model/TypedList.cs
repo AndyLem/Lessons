@@ -96,5 +96,10 @@ namespace Lessons.Model
         {
             return ToArray();
         }
+
+        internal void Clear()
+        {
+            dict.Clear();
+        }
     }
 }
