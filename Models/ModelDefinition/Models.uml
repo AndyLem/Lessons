@@ -55,60 +55,6 @@
               LastKnownLocation="Models.uml" />
           </interfaceRealization>
         </suppliersInternal>
-        <targetEnds>
-          <association
-            Id="0e353bc0-6e12-4907-8a91-1a5a8f62a1de"
-            isDerived="false"
-            sourceEndRoleName="Group"
-            targetEndRoleName="Student"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="32709513-1440-4f21-a3e7-47cfd21d547f"
-              LastKnownName="Student"
-              LastKnownLocation="Models.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="371255c9-82ee-46e3-9b4e-616f3788d431"
-                  name="Group"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fa496253-e91e-416d-b2af-e4b71ccaece0"
-                  name="Student"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="92528343-90cc-4a9a-9f2d-f76271e059ea"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="5c76d7df-a5a7-4be6-a786-73d388cd87d5"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>

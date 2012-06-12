@@ -22,9 +22,19 @@ namespace Lessons.Model
             }
         }
 
+        private TypedList<Student> _students;
+
+        public TypedList<Student> Students
+        {
+            get { return _students; }
+        }
+
+        protected TypedList<Group> _groups;
+
         protected Storage()
         {
-
-        }       
+            _students = new TypedList<Student>();
+            _groups = new TypedList<Group>();
+        }
     }
 }

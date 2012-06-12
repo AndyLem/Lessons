@@ -70,7 +70,7 @@ namespace Lessons.Model
             return dict.Values.ToArray<T>();
         }
 
-        internal void Save(string fileName)
+        public void Save(string fileName)
         {
             Stream stream = File.Open(fileName, FileMode.Create);
             XmlSerializer ser = new XmlSerializer(typeof(List<T>));
@@ -80,7 +80,7 @@ namespace Lessons.Model
 
         }
 
-        internal void Load(string fileName)
+        public void Load(string fileName)
         {
             Stream stream = File.Open(fileName, FileMode.Open);
             XmlSerializer ser = new XmlSerializer(typeof(List<T>));
@@ -90,6 +90,11 @@ namespace Lessons.Model
 
             foreach (T obj in lst)
                 AddItem(obj);
+        }
+
+        public IEnumerable<T> GetEnumerator()
+        {
+            return ToArray();
         }
     }
 }

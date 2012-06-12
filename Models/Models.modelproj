@@ -29,4 +29,10 @@
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lessons\Lessons.csproj">
+      <Name>Lessons</Name>
+      <Project>{cc686f44-020d-49b3-8085-3d76501241d9}</Project>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
