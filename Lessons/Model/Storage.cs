@@ -55,7 +55,13 @@ namespace Lessons.Model
             set { _courses = value; }
         }
 
+        private TypedList<Teacher> _teachers;
 
+        public TypedList<Teacher> Teachers
+        {
+            get { return _teachers; }
+            set { _teachers = value; }
+        }
 
         private Storage()
         {
@@ -63,12 +69,16 @@ namespace Lessons.Model
             _groups = new TypedList<Group>();
             _univers = new TypedList<University>();
             _courses = new TypedList<Course>();
+            _teachers = new TypedList<Teacher>();
         }
 
         internal void Save(string fileName)
         {
             _students.Save(fileName + ".students");
             _groups.Save(fileName + ".groups");
+            _univers.Save(fileName + ".univers");
+            _courses.Save(fileName + ".courses");
+            _teachers.Save(fileName + ".teachers");
         }
 
         internal void ClearAll()

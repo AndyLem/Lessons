@@ -13,6 +13,8 @@ namespace ModelTester
     {
         protected static Group testGroup;
         protected static University testUniver;
+        protected static Teacher testTeacher;
+        protected static Course testCourse;
 
         #region Дополнительные атрибуты теста
         // 
@@ -23,11 +25,20 @@ namespace ModelTester
         public static void MyClassInitialize(TestContext testContext)
         {
             testUniver = new University("Test Uni");
-            testGroup = new Group("TestGroup", testUniver);
+            //Storage.Data.Univers.AddItem(testUniver);
+
+            testGroup = new Group("TestGroup");
             testGroup.AddStudent(new Student("Mr. Brilliant"));
             testGroup.AddStudent(new Student("Mr. Diamond"));
             testGroup.AddStudent(new Student("Mr. Carbone"));
-            Storage.Data.Groups.AddItem(testGroup);
+            testUniver.AddGroup(testGroup);
+
+            testTeacher = new Teacher("Mr. Smartpants");
+            //Storage.Data.Teachers.AddItem(testTeacher);
+
+            testCourse = new Course("Very hard course");
+            testUniver.AddCourse(testCourse);
+            testTeacher.AddCourse(testCourse);
         }
         //
         //ClassCleanup используется для выполнения кода после завершения работы всех тестов в классе
@@ -57,7 +68,7 @@ namespace ModelTester
         }
 
         [TestMethod]
-        public void SerializationTest()
+        public void GroupsSerializationTest()
         {
             Assert.AreEqual(3, Storage.Data.Students.ToArray().Length, "Students list was not initialized");
             Assert.AreEqual(1, Storage.Data.Groups.ToArray().Length, "Groups list was not initialized");

@@ -7,17 +7,17 @@ namespace Lessons.Model
 {
     public class IDBase : IID
     {
-        protected string _id;
+        protected string _ID;
 
         public IDBase()
         {
-            _id = Guid.NewGuid().ToString();
+            _ID = Guid.NewGuid().ToString();
         }
 
         public string ID
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return _ID; }
+            set { _ID = value; }
         }
     }
 }

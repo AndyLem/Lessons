@@ -8,13 +8,13 @@ namespace Lessons.Model
     public class Course : IDBase, IID
     {
         public string Name;
-        private string _univerId;
-        private string _teacherId;
+        private string _univerID;
+        private string _teacherID;
 
-        public string TeacherId
+        public string TeacherID
         {
-            get { return _teacherId; }
-            set { _teacherId = value; }
+            get { return _teacherID; }
+            set { _teacherID = value; }
         }
 
         public Teacher Teacher
@@ -28,15 +28,15 @@ namespace Lessons.Model
 
         public string UniverID
         {
-            get { return _univerId; }
-            set { _univerId = value; }
+            get { return _univerID; }
+            set { _univerID = value; }
         }
 
         public University Univer
         {
             get
             {
-                return Storage.Data.Univers[_univerId];
+                return Storage.Data.Univers[_univerID];
             }
 
         }
@@ -46,11 +46,13 @@ namespace Lessons.Model
         {
         }
 
-        public Course(string name, University univer)
+        public Course(string name)
             : this()
         {
             Name = name;
-            _univerId = univer.ID;
+            _univerID = string.Empty;
         }
+
+
     }
 }

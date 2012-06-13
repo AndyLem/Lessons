@@ -12,19 +12,19 @@ namespace Lessons.Model
 
         public List<string> Urls;
 
-        protected string _groupId;
+        protected string _groupID;
 
-        public string GroupId
+        public string GroupID
         {
-            get { return _groupId; }
-            set { _groupId = value; }
+            get { return _groupID; }
+            set { _groupID = value; }
         }
 
         public Group Group
         {
             get
             {
-                return Storage.Data.Groups[_groupId];
+                return Storage.Data.Groups[_groupID];
             }
         }
 

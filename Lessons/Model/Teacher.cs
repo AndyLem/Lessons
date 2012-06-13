@@ -18,6 +18,7 @@ namespace Lessons.Model
             : this()
         {
             Name = name;
+            Storage.Data.Teachers.AddItem(this);
         }
 
         public IEnumerable<Course> Courses
@@ -25,7 +26,7 @@ namespace Lessons.Model
             get
             {
                 var arr = Storage.Data.Courses.ToArray();
-                return from c in arr where c.TeacherId == ID select c;
+                return from c in arr where c.TeacherID == ID select c;
             }
         }
 
@@ -33,12 +34,12 @@ namespace Lessons.Model
         {
             if (Storage.Data.Courses.GetItem(c.ID) == null)
                 Storage.Data.Courses.AddItem(c);
-            c.TeacherId = ID;
+            c.TeacherID = ID;
         }
 
         public void RemoveCourse(Course c)
         {
-            c.TeacherId = string.Empty;
+            c.TeacherID = string.Empty;
         }
     }
 }

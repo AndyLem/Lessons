@@ -18,10 +18,9 @@ namespace ModelTester
         {
             University newUni = new University("Best Uni ever");
             Assert.IsFalse(string.IsNullOrEmpty(newUni.ID), "Univer's constructor with parameters must generate an ID");
-
             Student newStud = new Student("Mr. Studoid");
             Assert.IsFalse(string.IsNullOrEmpty(newStud.ID), "Student's constructor with parameters must generate an ID");
-            Group newGroup = new Group("Test Group", newUni);
+            Group newGroup = new Group("Test Group");
             Assert.IsFalse(string.IsNullOrEmpty(newGroup.ID), "Group's constructor with parameters must generate an ID");
         }
 
@@ -42,7 +41,7 @@ namespace ModelTester
         [TestMethod]
         public void StudentsOfGroup()
         {
-            Group tempGroup = new Group("TestGroup", new University("TestUni"));
+            Group tempGroup = new Group("TestGroup");
             Student stud1 = new Student("Mr. First");
             Student stud2 = new Student("Mr. Second");
             Student stud3 = new Student("Mr. Third");
@@ -81,7 +80,7 @@ namespace ModelTester
         [TestMethod]
         public void SerializeGroup()
         {
-            Group srcGroup = new Group("Test Group", new University());
+            Group srcGroup = new Group("Test Group");
             Student stud = new Student("Mr. Stud");
             srcGroup.AddStudent(stud);
             

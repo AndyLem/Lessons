@@ -8,19 +8,19 @@ namespace Lessons.Model
 {
     public class Group : IDBase, IID
     {
-        private string _univerId;
+        private string _univerID;
 
-        public string UniverId
+        public string UniverID
         {
-            get { return _univerId; }
-            set { _univerId = value; }
+            get { return _univerID; }
+            set { _univerID = value; }
         }
 
         public University Univer
         {
             get
             {
-                return Storage.Data.Univers[_univerId];
+                return Storage.Data.Univers[_univerID];
             }
         }
 
@@ -37,10 +37,11 @@ namespace Lessons.Model
         /// Standard ctor for developers. It will generate a new ID for this group
         /// </summary>
         /// <param name="name">The name of the group</param>
-        public Group(string name, University univer) : this()
+        public Group(string name)
+            : this()
         {
             Name = name;
-            _univerId = univer.ID;
+            _univerID = string.Empty;
         }
 
         public IEnumerable<Student> Students 
@@ -50,21 +51,31 @@ namespace Lessons.Model
                 // all available students 
                 var allStuds = Storage.Data.Students.GetEnumerator();
                 return from stud in allStuds
-                       where stud.GroupId == ID
+                       where stud.GroupID == ID
                        select stud;
             }
         }
 
+
+        /// <summary>
+        /// Sets the link between this group and passed student.
+        /// Also tries to add the student to the Storage if nessesary
+        /// </summary>
+        /// <param name="s">Student being linked</param>
         public void AddStudent(Student s)
         {
             if (Storage.Data.Students.GetItem(s.ID) == null)
                 Storage.Data.Students.AddItem(s);
-            s.GroupId = ID;
+            s.GroupID = ID;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
         public void RemoveStudent(Student s)
         {
-            s.GroupId = string.Empty;
+            s.GroupID = string.Empty;
         }
     }
 }
