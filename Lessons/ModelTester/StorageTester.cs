@@ -25,8 +25,7 @@ namespace ModelTester
         public static void MyClassInitialize(TestContext testContext)
         {
             testUniver = new University("Test Uni");
-            //Storage.Data.Univers.AddItem(testUniver);
-
+            
             testGroup = new Group("TestGroup");
             testGroup.AddStudent(new Student("Mr. Brilliant"));
             testGroup.AddStudent(new Student("Mr. Diamond"));
@@ -34,7 +33,6 @@ namespace ModelTester
             testUniver.AddGroup(testGroup);
 
             testTeacher = new Teacher("Mr. Smartpants");
-            //Storage.Data.Teachers.AddItem(testTeacher);
 
             testCourse = new Course("Very hard course");
             testUniver.AddCourse(testCourse);

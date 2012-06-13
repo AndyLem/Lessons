@@ -72,7 +72,7 @@ namespace Lessons.Model
             _teachers = new TypedList<Teacher>();
         }
 
-        internal void Save(string fileName)
+        public void Save(string fileName)
         {
             _students.Save(fileName + ".students");
             _groups.Save(fileName + ".groups");
@@ -81,13 +81,13 @@ namespace Lessons.Model
             _teachers.Save(fileName + ".teachers");
         }
 
-        internal void ClearAll()
+        public void ClearAll()
         {
             _students.Clear();
             _groups.Clear();
         }
 
-        internal void Load(string fileName)
+        public void Load(string fileName)
         {
             _students.Load(fileName + ".students");
             _groups.Load(fileName + ".groups");
