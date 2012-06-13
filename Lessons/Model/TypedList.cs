@@ -14,27 +14,26 @@ namespace Lessons.Model
         {
         }
 
-        public T this[string id]
+        public T this[string ID]
         {
             get
             {
-                return GetItem(id);
+                return GetItem(ID);
             }
         }
 
-        public T GetItem(string id)
+        public T GetItem(string ID)
         {
             T item;
-            if (dict.TryGetValue(id, out item))
+            if (dict.TryGetValue(ID, out item))
                 return item;
             return default(T);
         }
 
         public T AddItem(T item)
         {
-            if (dict.ContainsKey(item.ID))
-                throw new Exception("Item with a given ID is already exists");
-            dict.Add(item.ID, item);
+            if (!dict.ContainsKey(item.ID))
+                dict.Add(item.ID, item);
             return item;
         }
 
@@ -49,11 +48,11 @@ namespace Lessons.Model
             RemoveItem(item.ID);
         }
 
-        public void RemoveItem(string id)
+        public void RemoveItem(string ID)
         {
             try
             {
-                dict.Remove(id);
+                dict.Remove(ID);
             }
             catch
             {
